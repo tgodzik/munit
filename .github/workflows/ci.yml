@@ -12,7 +12,7 @@ jobs:
         java: [11, 8]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: olafurpg/setup-scala@v10
       - run: sbt +testsJVM/test plugin/test
         env:
@@ -25,7 +25,7 @@ jobs:
       fail-fast: false
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: olafurpg/setup-scala@v10
       - run: sbt +testsJS/test
         env:
@@ -36,7 +36,7 @@ jobs:
   native:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: olafurpg/setup-scala@v10
       - run: sbt +testsNative/test
         env:
@@ -47,7 +47,7 @@ jobs:
   windows:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: olafurpg/setup-scala@v10
       - run: csbt +testsJVM/test
         shell: bash
@@ -59,20 +59,20 @@ jobs:
   mima:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: olafurpg/setup-scala@v10
       - run: sbt mimaReportBinaryIssues
   scalafmt:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: olafurpg/setup-scala@v10
       - run: ./bin/scalafmt --check
   docs:
     name: Scalafix and Docs
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: olafurpg/setup-scala@v10
       - run: sbt scalafixCheckAll
       - run: sbt docs/docusaurusCreateSite
